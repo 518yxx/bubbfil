@@ -38,9 +38,11 @@ $responsive_options = responsive_get_options();
 	<div id="footer-wrapper">
 
 		<?php get_sidebar( 'footer' ); ?>
-		<?php if( has_nav_menu( 'footer-menu', 'responsive' ) ) { ?>
-			<div class="grid col-940">
-				<div class="grid col-540">
+
+		<div class="grid col-940">
+
+			<div class="grid col-540">
+				<?php if( has_nav_menu( 'footer-menu', 'responsive' ) ) { ?>
 					<?php wp_nav_menu( array(
 										   'container'      => '',
 										   'fallback_cb'    => false,
@@ -49,21 +51,25 @@ $responsive_options = responsive_get_options();
 									   )
 					);
 					?>
-				</div>
-				<!-- end of col-540 -->
+				<?php } ?>
 			</div>
-			<!-- end of col-940 -->
-		<?php } ?>
+			<!-- end of col-540 -->
 
+			<div class="grid col-380 fit">
+				<?php echo responsive_get_social_icons() ?>
+			</div>
+			<!-- end of col-380 fit -->
+
+		</div>
+		<!-- end of col-940 -->
 		<?php get_sidebar( 'colophon' ); ?>
 
-		<div class="copyright">
+		<div class="grid col-300 copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php bloginfo( 'name' ); ?>
 			</a>
 		</div>
 		<!-- end of .copyright -->
-
 	</div>
 	<!-- end #footer-wrapper -->
 

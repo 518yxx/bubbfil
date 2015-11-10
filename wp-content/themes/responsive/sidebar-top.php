@@ -35,7 +35,7 @@ if( !is_active_sidebar( 'top-widget' )
 				$wpdb->update('wp_mydata', array('value' => ''.$visitorNum), array('ID' => 'visitors'));
 			}
 			$output = '<div class="pv-num">';
-			if(qtrans_getLanguage() == 'zh'){
+			if(function_exists('qtrans_getLanguage') && qtrans_getLanguage() == 'zh'){
 				$output .= '您是我们的第<em>'.$visitorNum.'</em>位访客';
 			}else{
 				$output .= 'You are our <em>'.$visitorNum.'th</em> Visitor';

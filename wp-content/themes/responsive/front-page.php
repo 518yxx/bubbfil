@@ -64,6 +64,16 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 				?>
 			</h1>
 
+			<h2 class="featured-subtitle">
+				<?php
+				if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
+					echo $responsive_options['home_subheadline'];
+				else {
+					_e( 'Your H2 subheadline here', 'responsive' );
+				}
+				?>
+			</h2>
+
 			<?php
 			if ( isset( $responsive_options['home_content_area'] ) && $db && $empty ) {
 				echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );

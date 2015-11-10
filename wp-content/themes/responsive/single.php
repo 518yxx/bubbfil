@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="content" class="grid col-940 yxx">
+<div id="content" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
 
 	<?php get_template_part( 'loop-header' ); ?>
 

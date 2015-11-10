@@ -421,7 +421,7 @@ function responsive_custom_excerpt_more( $output ) {
 	return $output;
 }
 
-//add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_more' );
+add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_more' );
 
 /**
  * This function removes inline styles set by WordPress gallery.

