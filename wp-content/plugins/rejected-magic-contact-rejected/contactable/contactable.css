@@ -16,26 +16,16 @@
 }
 
 div.contactable_l{
+  background-image:url(images/contact.png);
   left:0;
   margin-left:-5px; 
 	*margin-left:-5px;
 }
-div.l_en{
-	background-image:url(images/contact_en.jpg);
-}
-div.l_zh{
-	background-image:url(images/contact_zh.jpg);
-}
 div.contactable_r{
+  background-image:url(images/contact_right.png);
   right:0;
   margin-right:-5px; 
 	*margin-right:-5px;
-}
-div.r_en{
-	background-image:url(images/contact_right_en.jpg);
-}
-div.r_zh{
-	background-image:url(images/contact_right_zh.jpg);
 }
 
 #contactForm {

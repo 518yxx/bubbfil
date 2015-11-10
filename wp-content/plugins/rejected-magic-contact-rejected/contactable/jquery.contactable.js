@@ -22,25 +22,7 @@
   
   
 	//define the new for the plugin ans how to call it	
-	$.fn.contactable = function(options) {
-		var values;
-		var en = location.search.indexOf('lang=en')<0?false:true;
-		var regEn = /\[:en\]([^\[$]*)/, regZh = /\[:zh\]([^\[$]*)/;
-		for(key in options){
-			values = options[key];
-			if(en){
-				values = values.match(regEn);
-				if(values && values.length > 1){
-					options[key] = values[1];
-				}
-			}else{
-				values = values.match(regZh);
-				if(values && values.length > 1){
-					options[key] = values[1];
-				}
-			}
-			
-		}
+	$.fn.contactable = function(options) { 
 		//set default options  
 		var defaults = {
 			name: 'Name',
@@ -67,8 +49,8 @@
 		//act upon the element that is passed into the design    
 		return this.each(function(options) {
 			//construct the form
-			conf_side = en?"class='contactable_l l_en'":"class='contactable_l l_zh'";
-			if(defaults.side == "right") conf_side = en?"class='contactable_r r_en'":"class='contactable_r r_zh'";
+			conf_side = "class='contactable_l'";
+			if(defaults.side == "right") conf_side = "class='contactable_r'"; 
 			
 			div_form = '<div id="contactable" '+conf_side+' ></div><form '+conf_side+' id="contactForm" method="" action=""><div id="loading"></div><div id="callback"></div><div class="holder">';
 			div_form += '<p><label for="name">'+defaults.label_name+' <span class="red"> * </span></label><br /><input id="name_mc" class="contact" name="name" /></p>';
@@ -151,7 +133,7 @@
 					if(defaults.hide_email == 'false') email_val = $('#contactForm #email_mc').val();
 					else email_val = 'nothing';
 					if(defaults.hide_website == 'false') website_val = $('#contactForm #website_mc').val();
-					else website_val = '';
+					else website_val = 'nothing';
 					comment_val = $('#contactForm #comment_mc').val();
 					$.post(defaults.fileMail,{subject:defaults.subject, name: name_val, email: email_val, website: website_val, comment:comment_val, action:defaults.action},
 					function(data){

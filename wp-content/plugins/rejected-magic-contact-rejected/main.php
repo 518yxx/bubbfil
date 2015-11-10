@@ -125,14 +125,14 @@ class Magic_Contact {
       'email'           => 'E-Mail',
       'message'         => 'Message',
       'subject'         => $this->options['subject_contact'],
-      'label_name'      => $this->options['label_name_contact'],
-      'label_email'     => $this->options['label_email_contact'],
-      'label_website'   => $this->options['label_website_contact'],
-      'label_feedback'  => $this->options['label_feedback_contact'],
-      'label_send'      => $this->options['label_send_contact'],
-      'recievedMsg'     => $this->options['recievedMsg_contact'],
-      'notRecievedMsg'  => $this->options['notRecievedMsg_contact'],
-      'disclaimer'      => $this->options['disclaimer_contact'],
+      'label_name'      => __($this->options['label_name_contact']),
+      'label_email'     => __($this->options['label_email_contact']),
+      'label_website'   => __($this->options['label_website_contact']),
+      'label_feedback'  => __($this->options['label_feedback_contact']),
+      'label_send'      => __($this->options['label_send_contact']),
+      'recievedMsg'     => __($this->options['recievedMsg_contact']),
+      'notRecievedMsg'  => __($this->options['notRecievedMsg_contact']),
+      'disclaimer'      => __($this->options['disclaimer_contact']),
       'hide_email'      => $this->options['hide_email_contact'] ? 'true' : 'false',
       'hide_website'    => $this->options['hide_website_contact'] ? 'true' : 'false',
       'fileMail'        => admin_url('admin-ajax.php'),
@@ -156,11 +156,11 @@ class Magic_Contact {
     $comment = nl2br(esc_attr(trim($_POST['comment'])));
     $subject = esc_attr(trim($_POST['subject']));	
     $website = empty($_POST['website']) ? false : esc_url($_POST['website']);
-    $contactMessage = sprintf('<div><p style="font-weight: bold; display: inline;color: #999;">From:</p> %s</div>',$name);
+    $contactMessage = sprintf('<div><p style="font-weight: bold; display: inline;">From:</p> %s</div>',$name);
     if($website)
-      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;color: #999;">Website:</p> %s</div>',$website);
+      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;">Website:</p> %s</div>',$website);
     if($emailAddr)
-      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;color: #999;">Reply to:</p> %s</div>',$emailAddr);
+      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;">Reply to:</p> %s</div>',$emailAddr);
     
     if(!$emailAddr){
       echo 'An invalid email address was entered';
@@ -169,9 +169,9 @@ class Magic_Contact {
     
     //add referer
     if(isset($_SERVER["HTTP_REFERER"])){
-      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;color: #999;">On page:</p> <a href="%s" target="_blank">%s</a></div>',$_SERVER["HTTP_REFERER"],$_SERVER["HTTP_REFERER"]);
+      $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;">On page:</p> %s</div>',$_SERVER["HTTP_REFERER"]);
     }
-    $contactMessage .= sprintf('<div><div style="font-weight: bold;color: #999;">Message:</div> %s</div>',$comment);
+    $contactMessage .= sprintf('<div><p style="font-weight: bold; display: inline;">Message:</p> %s</div>',$comment);
     
     $contactMessage = sprintf('<div>%s</div>',$contactMessage);
     
@@ -207,39 +207,56 @@ class Magic_Contact {
 <body marginheight="0" topmargin="0" marginwidth="0" bgcolor="#c5c5c5" leftmargin="0">
 
 <table cellspacing="0" border="0" cellpadding="0" width="100%">
+	
 	<tr>
+		
 		<td valign="top">
 
-			<table cellspacing="0" border="0" align="center" style="background: #fff; border-right: 1px solid #ccc; border-left: 1px solid #ccc;" cellpadding="0" width="800">
+			<table cellspacing="0" border="0" align="center" style="background: #fff; border-right: 1px solid #ccc; border-left: 1px solid #ccc;" cellpadding="0" width="500">
 				<tr>
 					<td valign="top">
 						<!-- header -->
-						<table cellspacing="0" border="0" cellpadding="0" width="800">
+						<table cellspacing="0" border="0" height="157" cellpadding="0" width="500">
 							
 							<tr>
-								<td class="main-title" valign="top" style="padding: 0 20px; font-size: 25px; font-family: Georgia; font-style: italic;" width="800" colspan="2">
+								<td class="main-title" height="13" valign="top" style="padding: 0 20px; font-size: 25px; font-family: Georgia; font-style: italic;" width="500" colspan="2">
 								  <br />
 									<singleline label="Title">{subject}</singleline>
 								</td>
 							</tr>
 							<tr>
-								<td valign="top" width="800" colspan="2">
+								<td height="20" valign="top" width="500" colspan="2">
 								  <hr style="width:93%;" />
 								</td>
 							</tr>
 							<tr>
-								<td class="header-bar" valign="top" style="font-family: Verdana; font-size: 16px; padding: 0 20px;" width="800">
+								<td class="header-bar" valign="top" style="color: #999; font-family: Verdana; font-size: 12px; padding: 0 20px; height: 15px;" width="500" height="15">
 									{main}
 								</td>
-              </tr>
-            </table>
-						<!-- / header -->
-          </td>  
-				</tr>
-			</table>
 
-    </td>
-  </tr>
+						<!-- / header -->
+					
+				</table></td>
+				</tr>
+					
+				<tr>
+					<td valign="top" width="500">
+						<!-- footer -->
+						<table cellspacing="0" border="0" height="32" cellpadding="0" width="500">
+							<tr>
+								<td valign="top" colspan="2">
+								  <hr style="width:93%;" />
+								</td>
+							</tr>
+							<tr>
+								<td class="copyright" height="70" align="center" valign="top" style="padding: 0 20px; color: #999; font-family: Verdana; font-size: 10px; line-height: 20px;" width="500" colspan="2">
+									<multiline label="Description">{footer}</multiline>
+								</td>
+							</tr>
+						</table>
+						<!-- / end footer -->
+					</td>
+				</tr></table></td>
 </table></body></html>';
 
 		return $tmpl;
