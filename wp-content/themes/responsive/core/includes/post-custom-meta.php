@@ -251,6 +251,17 @@ function responsive_save_layout_post_metadata() {
 	update_post_meta( $post->ID, '_responsive_layout', $layout );
 }
 
+/**
+ * add hide-thumbnail meta when save post 
+*/
+function add_hide_thumbnail_meta($post_id){
+	if ( $_GET['post_type'] != 'page' ) {
+        add_post_meta($post_id, 'hide-thumbnail', 'true', true);
+    }
+}
+
+add_action( 'wp_insert_post', 'add_hide_thumbnail_meta' );
+
 // Hook the save layout post custom meta data into
 // publish_{post-type}, draft_{post-type}, and future_{post-type}
 add_action( 'publish_post', 'responsive_save_layout_post_metadata' );
