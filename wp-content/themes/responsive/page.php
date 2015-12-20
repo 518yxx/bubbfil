@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="content page">
+<div id="content">
 
 	<?php if( have_posts() ) : ?>
 
