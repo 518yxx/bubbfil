@@ -31,7 +31,11 @@ $responsive_options = responsive_get_options();
 function responsive_get_content_classes() {
 	$content_classes = array();
 	$layout          = responsive_get_layout();
-	if( in_array( $layout, array( 'default', 'content-sidebar-page' ) ) ) {
+	if( in_array( $layout, array( 'default', 'full-width-page' ) ) ) {
+		$content_classes[] = 'grid';
+		$content_classes[] = 'col-940';
+	}
+	elseif( 'content-sidebar-page' == $layout ) {
 		$content_classes[] = 'grid';
 		$content_classes[] = 'col-620';
 	}
@@ -48,10 +52,6 @@ function responsive_get_content_classes() {
 		$content_classes[] = 'grid-right';
 		$content_classes[] = 'col-460';
 		$content_classes[] = 'fit';
-	}
-	elseif( 'full-width-page' == $layout ) {
-		$content_classes[] = 'grid';
-		$content_classes[] = 'col-940';
 	}
 
 	return apply_filters( 'responsive_content_classes', $content_classes );
